@@ -26,12 +26,6 @@ class Exceptional {
     InputValidationException(code, payload) {
         return this._instantiate(exceptions_1.InputValidationException, code, payload);
     }
-    /**
-     * Format an exception.
-     */
-    format(ex) {
-        return this._namespace.render(ex) + ex.stack;
-    }
     _instantiate(cTor, code, payload) {
         return new cTor({
             namespace: this._namespace.name,

@@ -53,13 +53,6 @@ export class Exceptional {
     );
   }
 
-  /**
-   * Format an exception.
-   */
-  format (ex: IException<any>) : string {
-    return this._namespace.render(ex) + (ex as any).stack;
-  }
-
   private _instantiate <T, Payload> (
     cTor: {new (...args: any[]): T & IException<Payload>},
     code: number, payload: Payload

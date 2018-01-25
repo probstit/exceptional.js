@@ -12,9 +12,5 @@ export declare class Exceptional {
     ConflictException<Payload>(code: number, payload: Payload): ConflictExceptionBase<Payload> & IException<Payload>;
     NotFoundException<Payload>(code: number, payload: Payload): NotFoundExceptionBase<Payload> & IException<Payload>;
     InputValidationException<Payload>(code: number, payload: Payload): InputValidationExceptionBase<Payload>;
-    /**
-     * Format an exception.
-     */
-    format(ex: IException<any>): string;
     private _instantiate<T, Payload>(cTor, code, payload);
 }

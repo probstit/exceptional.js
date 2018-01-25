@@ -20,5 +20,15 @@ function context(name) {
     return exceptional_1.Exceptional.create(getNamespace(name));
 }
 exports.context = context;
+/**
+ * Format an exception.
+ */
+function format(ex) {
+    let namespace = exports.namespaceRegistry.get(ex.namespace);
+    if (!namespace)
+        throw `Could not format exception.`;
+    return namespace.render(ex);
+}
+exports.format = format;
 
 //# sourceMappingURL=main.js.map

@@ -17,11 +17,11 @@ main_1.registerTable(exports.TABLE);
 let ex = exceptional.ServerException(1, {
     message: 'ce exceptie'
 });
-console.log(exceptional.format(ex));
+console.log(main_1.format(ex));
 ex = exceptional.DomainException(1, {
     message: 'ce exceptie'
 });
 let httpErr = new http_1.HttpException(ex);
-console.log(exceptional.format(httpErr.error));
+console.log(main_1.format(httpErr.error));
 
 //# sourceMappingURL=main.js.map

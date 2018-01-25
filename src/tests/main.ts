@@ -1,6 +1,6 @@
 import {IErrorTable} from '../lib/IErrorTable';
 import {HttpException} from '../lib/http';
-import {context, registerTable} from '../main';
+import {context, registerTable, format} from '../main';
 const exceptional = context('default-namespace');
 
 export const TABLE: IErrorTable = {
@@ -18,10 +18,10 @@ registerTable(TABLE);
 let ex = exceptional.ServerException(1, {
   message: 'ce exceptie'
 });
-console.log(exceptional.format(ex));
+console.log(format(ex));
 ex = exceptional.DomainException(1, {
   message: 'ce exceptie'
 });
 
 let httpErr = new HttpException(ex);
-console.log(exceptional.format(httpErr.error));
+console.log(format(httpErr.error));
