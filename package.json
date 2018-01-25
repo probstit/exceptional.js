@@ -1,0 +1,42 @@
+{
+  "name": "exceptional.js",
+  "version": "0.0.0",
+  "description": "JavaScript exception handling library.",
+  "main": "build/main.js",
+  "types": "build/main.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/probstit/exceptional.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "exception"
+  ],
+  "author": "PRO BST IT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/probstit/exceptional.js/issues"
+  },
+  "homepage": "https://github.com/probstit/exceptional.js#readme",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-sequence": "1.0.0",
+    "gulp-sourcemaps": "2.6.3",
+    "gulp-tslint": "8.1.2",
+    "gulp-typescript": "4.0.0-alpha.1",
+    "gulp-uglify": "3.0.0",
+    "rollup": "0.54.1",
+    "rollup-plugin-alias": "1.4.0",
+    "rollup-plugin-commonjs": "8.2.6",
+    "rollup-plugin-node-resolve": "3.0.2",
+    "rollup-plugin-node-resolve-angular": "2.0.3",
+    "rollup-plugin-typescript": "0.8.1",
+    "rollup-plugin-uglify": "2.0.1",
+    "tslint": "5.9.1",
+    "typescript": "2.6.2",
+    "yargs": "10.1.1"
+  }
+}
