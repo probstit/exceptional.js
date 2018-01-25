@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
+    "declaration": true,
     // "allowJs": true,
     "emitBOM": true,
     "emitDecoratorMetadata": true,

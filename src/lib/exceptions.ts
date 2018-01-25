@@ -57,5 +57,5 @@ export class NotFoundException <T> extends ServerException<T> {}
  * @author Dragos Sebestin
  */
 
-declare type InputExceptionPayloadExtraType = {errors: Array<{[key: string]: any}>};
+export declare type InputExceptionPayloadExtraType = {errors: Array<{[key: string]: any}>};
 export class InputValidationException <T> extends ServerException<T & InputExceptionPayloadExtraType> { }
