@@ -1,4 +1,4 @@
-import { IException, ServerException as ServerExceptionBase, DomainException as DomainExceptionBase, ConflictException as ConflictExceptionBase, InputValidationException as InputValidationExceptionBase, NotFoundException as NotFoundExceptionBase } from './lib/exceptions';
+import { IException, GenericException as GenericExceptionBase, DomainException as DomainExceptionBase, ConflictException as ConflictExceptionBase, InputValidationException as InputValidationExceptionBase, NotFoundException as NotFoundExceptionBase } from './lib/exceptions';
 import { Namespace } from './lib/namespace';
 export declare class Exceptional {
     private _namespace;
@@ -7,7 +7,7 @@ export declare class Exceptional {
      */
     private constructor();
     static create(ns: Namespace): Exceptional;
-    ServerException<Payload>(code: number, payload: Payload): ServerExceptionBase<Payload> & IException<Payload>;
+    GenericException<Payload>(code: number, payload: Payload): GenericExceptionBase<Payload> & IException<Payload>;
     DomainException<Payload>(code: number, payload: Payload): DomainExceptionBase<Payload> & IException<Payload>;
     ConflictException<Payload>(code: number, payload: Payload): ConflictExceptionBase<Payload> & IException<Payload>;
     NotFoundException<Payload>(code: number, payload: Payload): NotFoundExceptionBase<Payload> & IException<Payload>;

@@ -11,8 +11,8 @@ class Exceptional {
     static create(ns) {
         return new Exceptional(ns);
     }
-    ServerException(code, payload) {
-        return this._instantiate(exceptions_1.ServerException, code, payload);
+    GenericException(code, payload) {
+        return this._instantiate(exceptions_1.GenericException, code, payload);
     }
     DomainException(code, payload) {
         return this._instantiate(exceptions_1.DomainException, code, payload);

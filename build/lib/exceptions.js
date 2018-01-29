@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *
  * @author Dragos Sebestin
  */
-class ServerException extends Error {
+class GenericException extends Error {
     /**
      * Class constructor.
      */
@@ -16,13 +16,13 @@ class ServerException extends Error {
         this.payload = ex.payload;
     }
 }
-exports.ServerException = ServerException;
+exports.GenericException = GenericException;
 /**
  * Domain type exception class.
  *
  * @author Dragos Sebestin
  */
-class DomainException extends ServerException {
+class DomainException extends GenericException {
 }
 exports.DomainException = DomainException;
 /**
@@ -30,7 +30,7 @@ exports.DomainException = DomainException;
  *
  * @author Dragos Sebestin
  */
-class ConflictException extends ServerException {
+class ConflictException extends GenericException {
 }
 exports.ConflictException = ConflictException;
 /**
@@ -38,10 +38,10 @@ exports.ConflictException = ConflictException;
  *
  * @author Dragos Sebestin
  */
-class NotFoundException extends ServerException {
+class NotFoundException extends GenericException {
 }
 exports.NotFoundException = NotFoundException;
-class InputValidationException extends ServerException {
+class InputValidationException extends GenericException {
 }
 exports.InputValidationException = InputValidationException;
 

@@ -20,7 +20,7 @@ class HttpException {
             this.error = base;
             this.statusCode = 404;
         }
-        else if (base instanceof exceptions_1.ServerException) {
+        else if (base instanceof exceptions_1.GenericException) {
             this.error = base;
             this.statusCode = 500;
         }

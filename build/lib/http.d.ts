@@ -1,4 +1,4 @@
-import { IException, ServerException, DomainException, ConflictException, InputValidationException } from './exceptions';
+import { IException, GenericException, DomainException, ConflictException, InputValidationException } from './exceptions';
 export interface IHttpException {
     statusCode: number;
     error: IException<any>;
@@ -11,5 +11,5 @@ export interface IHttpException {
 export declare class HttpException implements IHttpException {
     statusCode: number;
     error: IException<any>;
-    constructor(base: ServerException<any> | DomainException<any> | ConflictException<any> | InputValidationException<any> | any);
+    constructor(base: GenericException<any> | DomainException<any> | ConflictException<any> | InputValidationException<any> | any);
 }

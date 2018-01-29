@@ -14,7 +14,7 @@ exports.TABLE = {
     }
 };
 main_1.registerTable(exports.TABLE);
-let ex = exceptional.ServerException(1, {
+let ex = exceptional.GenericException(1, {
     message: 'ce exceptie'
 });
 console.log(main_1.format(ex));
