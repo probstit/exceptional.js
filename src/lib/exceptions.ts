@@ -14,7 +14,7 @@ export interface IException<T> {
  *
  * @author Dragos Sebestin
  */
-export class ServerException <T> extends Error implements IException<T> {
+export class GenericException <T> extends Error implements IException<T> {
   public namespace: string;
   public code: number;
   public payload: T;
@@ -35,21 +35,21 @@ export class ServerException <T> extends Error implements IException<T> {
  *
  * @author Dragos Sebestin
  */
-export class DomainException <T> extends ServerException<T> {}
+export class DomainException <T> extends GenericException<T> {}
 
 /**
  * Resource conflict type exception class.
  *
  * @author Dragos Sebestin
  */
-export class ConflictException <T> extends ServerException<T> {}
+export class ConflictException <T> extends GenericException<T> {}
 
 /**
  * Resource not found type exception class.
  *
  * @author Dragos Sebestin
  */
-export class NotFoundException <T> extends ServerException<T> {}
+export class NotFoundException <T> extends GenericException<T> {}
 
 /**
  * Input validation type exception class.
@@ -58,4 +58,4 @@ export class NotFoundException <T> extends ServerException<T> {}
  */
 
 export declare type InputExceptionPayloadExtraType = {errors: Array<{[key: string]: any}>};
-export class InputValidationException <T> extends ServerException<T & InputExceptionPayloadExtraType> { }
+export class InputValidationException <T> extends GenericException<T & InputExceptionPayloadExtraType> { }

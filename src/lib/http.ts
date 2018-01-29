@@ -1,5 +1,5 @@
 import {
-  IException, ServerException,
+  IException, GenericException,
   DomainException, ConflictException,
   InputValidationException, NotFoundException
 } from './exceptions';
@@ -19,7 +19,7 @@ export class HttpException implements IHttpException {
   public error: IException<any>;
 
   constructor (
-    base: ServerException<any> | DomainException<any> | ConflictException<any> | InputValidationException<any> | any
+    base: GenericException<any> | DomainException<any> | ConflictException<any> | InputValidationException<any> | any
   ) {
     if (base instanceof DomainException) {
       this.error = base;
@@ -30,7 +30,7 @@ export class HttpException implements IHttpException {
     } else if (base instanceof NotFoundException) {
       this.error = base;
       this.statusCode = 404;
-    } else if (base instanceof ServerException) {
+    } else if (base instanceof GenericException) {
       this.error = base;
       this.statusCode = 500;
     } else {

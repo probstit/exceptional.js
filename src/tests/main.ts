@@ -15,7 +15,7 @@ export const TABLE: IErrorTable = {
 };
 registerTable(TABLE);
 
-let ex = exceptional.ServerException(1, {
+let ex = exceptional.GenericException(1, {
   message: 'ce exceptie'
 });
 console.log(format(ex));

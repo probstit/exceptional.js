@@ -1,6 +1,6 @@
 import {
   IException,
-  ServerException as ServerExceptionBase,
+  GenericException as GenericExceptionBase,
   DomainException as DomainExceptionBase,
   ConflictException as ConflictExceptionBase,
   InputValidationException as InputValidationExceptionBase,
@@ -21,9 +21,9 @@ export class Exceptional {
     return new Exceptional(ns);
   }
 
-  ServerException <Payload> (code: number, payload: Payload) {
-    return this._instantiate<ServerExceptionBase<Payload>, Payload>(
-      ServerExceptionBase, code, payload
+  GenericException <Payload> (code: number, payload: Payload) {
+    return this._instantiate<GenericExceptionBase<Payload>, Payload>(
+      GenericExceptionBase, code, payload
     );
   }
 
