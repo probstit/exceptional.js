@@ -23,6 +23,7 @@
   "homepage": "https://github.com/probstit/exceptional.js#readme",
   "devDependencies": {
     "gulp": "3.9.1",
+    "gulp-rimraf": "0.2.2",
     "gulp-sequence": "1.0.0",
     "gulp-sourcemaps": "2.6.3",
     "gulp-tslint": "8.1.2",

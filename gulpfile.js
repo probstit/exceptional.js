@@ -10,6 +10,7 @@ const uglify = require('gulp-uglify');
 const gulpTslint = require('gulp-tslint');
 const tslint = require('tslint');
 const sourcemaps = require('gulp-sourcemaps');
+const rm = require('gulp-rimraf');
 
 // determine build environment (development | production).
 let env = argv.env || 'development';
@@ -71,6 +72,10 @@ gulp.task('transpile', () => {
     .pipe(gulp.dest('build/bundles/'));
 });
 
+gulp.task('clean', () => {
+  return gulp.src('build/').pipe(rm());
+});
+
 gulp.task('watch', () => {
   gulp.watch(['src/**/*.ts'], ['build']);
 });
@@ -87,6 +92,7 @@ gulp.task('build', sequence(
  * Release tasks
  */
 gulp.task('release', sequence(
+  'clean',
   'tslint',
   'compile',
   'bundle',
