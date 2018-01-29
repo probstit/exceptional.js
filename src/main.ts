@@ -1,9 +1,11 @@
 import {Exceptional} from './exceptional';
 import {Namespace} from './lib/namespace';
 import {IErrorTable} from './lib/IErrorTable';
-export * from './lib/IErrorTable';
 import {IException} from './lib/exceptions';
+
+export * from './lib/IErrorTable';
 export {IException} from './lib/exceptions';
+export * from './lib/http';
 
 export let namespaceRegistry = new Map<string, Namespace>();
 function getNamespace (name: string) {
