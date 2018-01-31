@@ -29,11 +29,25 @@ class HttpException {
             this.statusCode = 429;
         }
         else {
-            this.error = {
+            this.error = Object.assign({}, base, {
                 code: 0,
                 namespace: 'default',
-                payload: base
-            };
+                payload: {}
+            });
+            if (typeof base === 'object' &&
+                base !== null) {
+                for (const key of Object.getOwnPropertyNames(base)) {
+                    Object.defineProperty(this.error, key, {
+                        enumerable: base.propertyIsEnumerable(key),
+                        writable: false,
+                        configurable: false,
+                        value: base[key]
+                    });
+                }
+            }
+            else {
+                this.error.payload = base;
+            }
             this.statusCode = 500;
         }
     }

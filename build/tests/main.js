@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = require("../lib/http");
 const server_1 = require("../lib/server");
 const main_1 = require("../main");
-const exceptional = main_1.context('default-namespace');
+const exceptional = main_1.context('default');
 exports.TABLE = {
-    namespace: 'default-namespace',
+    namespace: 'default',
     locale: 'ro',
     errors: {
         0: 'S-a intamplat ceva neprevazut.',
@@ -24,6 +24,10 @@ ex = exceptional.DomainException(1, {
 });
 let httpErr = new http_1.HttpException(ex);
 console.log(main_1.format(httpErr.error));
+httpErr = new http_1.HttpException(new Error('Mongo fake exception'));
+console.log(main_1.format(httpErr.error));
+console.log(JSON.stringify(httpErr.error));
+console.log(httpErr.error.stack);
 let serverErr = new server_1.ServerException(ex);
 console.log(serverErr.message);
 
