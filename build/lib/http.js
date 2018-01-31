@@ -24,10 +24,14 @@ class HttpException {
             this.error = base;
             this.statusCode = 500;
         }
+        else if (base instanceof exceptions_1.ThrottleException) {
+            this.error = base;
+            this.statusCode = 429;
+        }
         else {
             this.error = {
                 code: 0,
-                namespace: '',
+                namespace: 'default',
                 payload: base
             };
             this.statusCode = 500;

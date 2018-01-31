@@ -1,7 +1,8 @@
 import {
   IException, GenericException,
   DomainException, ConflictException,
-  InputValidationException, NotFoundException
+  InputValidationException, NotFoundException,
+  ThrottleException
 } from './exceptions';
 
 export interface IHttpException {
@@ -33,10 +34,13 @@ export class HttpException implements IHttpException {
     } else if (base instanceof GenericException) {
       this.error = base;
       this.statusCode = 500;
+    } else if (base instanceof ThrottleException) {
+      this.error = base;
+      this.statusCode = 429;
     } else {
       this.error = {
         code: 0,
-        namespace: '',
+        namespace: 'default',
         payload: base
       };
       this.statusCode = 500;

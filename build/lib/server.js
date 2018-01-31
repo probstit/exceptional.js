@@ -10,9 +10,9 @@ class ServerException {
     /**
      * Class constructor.
      */
-    constructor(httpException) {
-        this.message = main_1.format(httpException.error);
-        this.exception = httpException.error;
+    constructor(exception) {
+        this.message = main_1.format(exception);
+        this.exception = exception;
     }
 }
 exports.ServerException = ServerException;

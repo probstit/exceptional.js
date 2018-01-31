@@ -24,9 +24,9 @@ export class GenericException <T> extends Error implements IException<T> {
    */
   constructor (ex: IException<T>) {
     super();
-    this.namespace = ex.namespace;
-    this.code = ex.code;
-    this.payload = ex.payload;
+    this.namespace = ex.namespace || 'default';
+    this.code = ex.code || 0;
+    this.payload = ex.payload || {};
   }
 }
 
@@ -50,6 +50,11 @@ export class ConflictException <T> extends GenericException<T> {}
  * @author Dragos Sebestin
  */
 export class NotFoundException <T> extends GenericException<T> {}
+
+/**
+ * Throttle type exception class.
+ */
+export class ThrottleException <T> extends GenericException<T> {}
 
 /**
  * Input validation type exception class.

@@ -44,6 +44,11 @@ export declare class ConflictException<T> extends GenericException<T> {
 export declare class NotFoundException<T> extends GenericException<T> {
 }
 /**
+ * Throttle type exception class.
+ */
+export declare class ThrottleException<T> extends GenericException<T> {
+}
+/**
  * Input validation type exception class.
  *
  * @author Dragos Sebestin

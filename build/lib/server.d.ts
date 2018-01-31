@@ -1,5 +1,4 @@
 import { IException } from './exceptions';
-import { IHttpException } from './http';
 /**
  * High level Server API exception class.
  *
@@ -11,5 +10,5 @@ export declare class ServerException {
     /**
      * Class constructor.
      */
-    constructor(httpException: IHttpException);
+    constructor(exception: IException<any>);
 }

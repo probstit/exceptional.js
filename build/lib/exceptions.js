@@ -11,9 +11,9 @@ class GenericException extends Error {
      */
     constructor(ex) {
         super();
-        this.namespace = ex.namespace;
-        this.code = ex.code;
-        this.payload = ex.payload;
+        this.namespace = ex.namespace || 'default';
+        this.code = ex.code || 0;
+        this.payload = ex.payload || {};
     }
 }
 exports.GenericException = GenericException;
@@ -41,6 +41,12 @@ exports.ConflictException = ConflictException;
 class NotFoundException extends GenericException {
 }
 exports.NotFoundException = NotFoundException;
+/**
+ * Throttle type exception class.
+ */
+class ThrottleException extends GenericException {
+}
+exports.ThrottleException = ThrottleException;
 class InputValidationException extends GenericException {
 }
 exports.InputValidationException = InputValidationException;

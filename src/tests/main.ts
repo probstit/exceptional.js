@@ -1,5 +1,6 @@
 import {IErrorTable} from '../lib/IErrorTable';
 import {HttpException} from '../lib/http';
+import {ServerException} from '../lib/server';
 import {context, registerTable, format} from '../main';
 const exceptional = context('default-namespace');
 
@@ -25,3 +26,6 @@ ex = exceptional.DomainException(1, {
 
 let httpErr = new HttpException(ex);
 console.log(format(httpErr.error));
+
+let serverErr = new ServerException(ex);
+console.log(serverErr.message);

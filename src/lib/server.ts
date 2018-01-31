@@ -1,5 +1,4 @@
 import {IException} from './exceptions';
-import {IHttpException} from './http';
 import {format} from '../main';
 
 /**
@@ -14,8 +13,8 @@ export class ServerException {
   /**
    * Class constructor.
    */
-  constructor (httpException: IHttpException) {
-    this.message = format(httpException.error);
-    this.exception = httpException.error;
+  constructor (exception: IException<any>) {
+    this.message = format(exception);
+    this.exception = exception;
   }
 }
