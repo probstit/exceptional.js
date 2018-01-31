@@ -4,7 +4,8 @@ import {
   DomainException as DomainExceptionBase,
   ConflictException as ConflictExceptionBase,
   InputValidationException as InputValidationExceptionBase,
-  NotFoundException as NotFoundExceptionBase
+  NotFoundException as NotFoundExceptionBase,
+  ThrottleException as ThrottleExceptionBase
 } from './lib/exceptions';
 import {Namespace} from './lib/namespace';
 
@@ -50,6 +51,14 @@ export class Exceptional {
   ): InputValidationExceptionBase<Payload> {
     return this._instantiate<InputValidationExceptionBase<Payload>, Payload>(
       InputValidationExceptionBase, code, payload
+    );
+  }
+
+  ThrottleException <Payload> (
+    code: number, payload: Payload
+  ) : ThrottleExceptionBase<Payload> {
+    return this._instantiate<ThrottleExceptionBase<Payload>, Payload>(
+      ThrottleExceptionBase, code, payload
     );
   }
 
