@@ -20,13 +20,13 @@ class HttpException {
             this.error = base;
             this.statusCode = 404;
         }
-        else if (base instanceof exceptions_1.GenericException) {
-            this.error = base;
-            this.statusCode = 500;
-        }
         else if (base instanceof exceptions_1.ThrottleException) {
             this.error = base;
             this.statusCode = 429;
+        }
+        else if (base instanceof exceptions_1.GenericException) {
+            this.error = base;
+            this.statusCode = 500;
         }
         else {
             this.error = Object.assign({}, base, {
