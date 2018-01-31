@@ -26,6 +26,9 @@ class Exceptional {
     InputValidationException(code, payload) {
         return this._instantiate(exceptions_1.InputValidationException, code, payload);
     }
+    ThrottleException(code, payload) {
+        return this._instantiate(exceptions_1.ThrottleException, code, payload);
+    }
     _instantiate(cTor, code, payload) {
         return new cTor({
             namespace: this._namespace.name,
