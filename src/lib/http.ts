@@ -31,13 +31,13 @@ export class HttpException implements IHttpException {
     } else if (base instanceof NotFoundException) {
       this.error = base;
       this.statusCode = 404;
-    } else if (base instanceof GenericException) {
-      this.error = base;
-      this.statusCode = 500;
     } else if (base instanceof ThrottleException) {
       this.error = base;
       this.statusCode = 429;
-    } else {
+    } else if (base instanceof GenericException) {
+      this.error = base;
+      this.statusCode = 500;
+    }  else {
       this.error = Object.assign({}, base, {
         code: 0,
         namespace: 'default',
