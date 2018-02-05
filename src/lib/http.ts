@@ -2,7 +2,8 @@ import {
   IException, GenericException,
   DomainException, ConflictException,
   InputValidationException, NotFoundException,
-  ThrottleException
+  ThrottleException, UnauthorizedException,
+  PaymentRequiredException
 } from './exceptions';
 
 export interface IHttpException {
@@ -20,7 +21,9 @@ export class HttpException implements IHttpException {
   public error: IException<any>;
 
   constructor (
-    base: GenericException<any> | DomainException<any> | ConflictException<any> | InputValidationException<any> | any
+    base: GenericException<any> | DomainException<any> |
+    ConflictException<any> | InputValidationException<any> |
+    UnauthorizedException<any> | PaymentRequiredException<any> | any
   ) {
     if (base instanceof DomainException) {
       this.error = base;
@@ -37,7 +40,16 @@ export class HttpException implements IHttpException {
     } else if (base instanceof GenericException) {
       this.error = base;
       this.statusCode = 500;
-    }  else {
+    } else if (base instanceof InputValidationException) {
+      this.error = base;
+      this.statusCode = 400;
+    } else if (base instanceof UnauthorizedException) {
+      this.error = base;
+      this.statusCode = 401;
+    } else if (base instanceof PaymentRequiredException) {
+      this.error = base;
+      this.statusCode = 402;
+    } else {
       this.error = Object.assign({}, base, {
         code: 0,
         namespace: 'default',

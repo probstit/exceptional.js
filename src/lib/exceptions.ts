@@ -57,6 +57,16 @@ export class NotFoundException <T> extends GenericException<T> {}
 export class ThrottleException <T> extends GenericException<T> {}
 
 /**
+ * Unauthorized type exception class.
+ */
+export class UnauthorizedException <T> extends GenericException<T> {}
+
+/**
+ * Payment required type exception class.
+ */
+export class PaymentRequiredException <T> extends GenericException<T> {}
+
+/**
  * Input validation type exception class.
  *
  * @author Dragos Sebestin
