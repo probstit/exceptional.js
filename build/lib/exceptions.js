@@ -47,6 +47,18 @@ exports.NotFoundException = NotFoundException;
 class ThrottleException extends GenericException {
 }
 exports.ThrottleException = ThrottleException;
+/**
+ * Unauthorized type exception class.
+ */
+class UnauthorizedException extends GenericException {
+}
+exports.UnauthorizedException = UnauthorizedException;
+/**
+ * Payment required type exception class.
+ */
+class PaymentRequiredException extends GenericException {
+}
+exports.PaymentRequiredException = PaymentRequiredException;
 class InputValidationException extends GenericException {
 }
 exports.InputValidationException = InputValidationException;

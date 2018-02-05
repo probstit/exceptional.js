@@ -28,6 +28,18 @@ class HttpException {
             this.error = base;
             this.statusCode = 500;
         }
+        else if (base instanceof exceptions_1.InputValidationException) {
+            this.error = base;
+            this.statusCode = 400;
+        }
+        else if (base instanceof exceptions_1.UnauthorizedException) {
+            this.error = base;
+            this.statusCode = 401;
+        }
+        else if (base instanceof exceptions_1.PaymentRequiredException) {
+            this.error = base;
+            this.statusCode = 402;
+        }
         else {
             this.error = Object.assign({}, base, {
                 code: 0,
