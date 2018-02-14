@@ -1,1 +1,0 @@
-{"version":3,"sources":["lib/IErrorTable.ts"],"names":[],"mappings":"","file":"IErrorTable.js","sourcesContent":["/**\r\n * Error table interface.\r\n */\r\nexport interface IErrorTable {\r\n  namespace: string,\r\n  locale: string,\r\n  errors: {[key: number]: string}\r\n}\r\n"],"sourceRoot":"D:\\projects\\exceptional.js/src"}
