@@ -37,9 +37,6 @@ export class HttpException implements IHttpException {
     } else if (base instanceof ThrottleException) {
       this.error = base;
       this.statusCode = 429;
-    } else if (base instanceof GenericException) {
-      this.error = base;
-      this.statusCode = 500;
     } else if (base instanceof InputValidationException) {
       this.error = base;
       this.statusCode = 400;
@@ -49,6 +46,9 @@ export class HttpException implements IHttpException {
     } else if (base instanceof PaymentRequiredException) {
       this.error = base;
       this.statusCode = 402;
+    } else if (base instanceof GenericException) {
+      this.error = base;
+      this.statusCode = 500;
     } else {
       this.error = Object.assign({}, base, {
         code: 0,
