@@ -5,7 +5,9 @@ import {
   ConflictException as ConflictExceptionBase,
   InputValidationException as InputValidationExceptionBase,
   NotFoundException as NotFoundExceptionBase,
-  ThrottleException as ThrottleExceptionBase
+  ThrottleException as ThrottleExceptionBase,
+  UnauthorizedException as UnauthorizedExceptionBase,
+  PaymentRequiredException as PaymentRequiredExceptionBase
 } from './lib/exceptions';
 import {Namespace} from './lib/namespace';
 
@@ -59,6 +61,22 @@ export class Exceptional {
   ) : ThrottleExceptionBase<Payload> {
     return this._instantiate<ThrottleExceptionBase<Payload>, Payload>(
       ThrottleExceptionBase, code, payload
+    );
+  }
+
+  UnauthorizedException <Payload> (
+    code: number, payload: Payload
+  ) : UnauthorizedExceptionBase<Payload> {
+    return this._instantiate<UnauthorizedExceptionBase<Payload>, Payload>(
+      UnauthorizedExceptionBase, code, payload
+    );
+  }
+
+  PaymentRequiredException <Payload> (
+    code: number, payload: Payload
+  ) : PaymentRequiredExceptionBase<Payload> {
+    return this._instantiate<PaymentRequiredExceptionBase<Payload>, Payload>(
+      PaymentRequiredExceptionBase, code, payload
     );
   }
 

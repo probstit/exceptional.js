@@ -8,10 +8,8 @@ export const TABLE: IErrorTable = {
   namespace: 'default',
   locale: 'ro',
   errors: {
-    0: 'S-a intamplat ceva neprevazut.',
+    0: 'Something went horribly wrong.',
     1: '${message}',
-    2: 'Nu poti face o rezervare in trecut.',
-    3: '${workerName} ti-a blocat accestul la calendar',
   }
 };
 registerTable(TABLE);
