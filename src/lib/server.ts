@@ -7,13 +7,15 @@ import {format} from '../main';
  * @author Dragos Sebestin
  */
 export class ServerException {
+  public status: number;
   public message: string;
   public exception: IException<any>;
 
   /**
    * Class constructor.
    */
-  constructor (exception: IException<any>) {
+  constructor (status: number, exception: IException<any>) {
+    this.status = status;
     this.message = format(exception);
     this.exception = exception;
   }

@@ -30,5 +30,5 @@ console.log(format(httpErr.error));
 console.log(JSON.stringify(httpErr.error));
 console.log((httpErr.error as any).stack);
 
-let serverErr = new ServerException(ex);
+let serverErr = new ServerException(500, ex);
 console.log(serverErr.message);
