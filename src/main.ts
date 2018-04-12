@@ -7,6 +7,7 @@ export * from './lib/IErrorTable';
 export {IException} from './lib/exceptions';
 export * from './lib/http';
 export * from './lib/server';
+export * from './lib/client';
 
 export let namespaceRegistry = new Map<string, Namespace>();
 function getNamespace (name: string) {
