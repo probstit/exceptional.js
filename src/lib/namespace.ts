@@ -30,6 +30,10 @@ export class Namespace {
 
     // get template
     let template = table.errors[ex.code];
+    // fallback to default error template if one cannot be found
+    if (!template)
+      template = table.errors[0];
+
     return this._renderTemplate(template, ex.payload);
   }
 

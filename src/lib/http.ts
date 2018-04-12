@@ -51,8 +51,8 @@ export class HttpException implements IHttpException {
       this.statusCode = 500;
     } else {
       this.error = Object.assign({}, base, {
-        code: 0,
         namespace: 'default',
+        code: 0,
         payload: {}
       });
 

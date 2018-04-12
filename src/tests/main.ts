@@ -2,6 +2,7 @@ import {IErrorTable} from '../lib/IErrorTable';
 import {HttpException} from '../lib/http';
 import {ServerException} from '../lib/server';
 import {context, registerTable, format} from '../main';
+import { ClientException } from '../lib/client';
 const exceptional = context('default');
 
 export const TABLE: IErrorTable = {
@@ -32,3 +33,9 @@ console.log((httpErr.error as any).stack);
 
 let serverErr = new ServerException(500, ex);
 console.log(serverErr.message);
+
+let clientErr = new ClientException(undefined);
+console.log(JSON.stringify(clientErr));
+
+clientErr = new ClientException(ex);
+console.log(JSON.stringify(clientErr));
