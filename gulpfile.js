@@ -66,7 +66,8 @@ gulp.task('transpile', () => {
       target: 'es5',
       module: 'none',
       allowJs: true,
-      outFile: 'main.min.js'
+      outFile: 'main.min.js',
+      lib: ['es6']
     }))
     .pipe(uglify())
     .pipe(gulp.dest('build/bundles/'));
