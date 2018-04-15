@@ -19,11 +19,19 @@ export class Namespace {
   /**
    * Render an exception.
    */
-  render (ex: IException<any>) : string {
+  render (ex: IException<any>, locale: string) : string {
     // find error table
     let table = this._tables.find(
-      t => t.namespace === this.name
+      t => t.namespace === this.name && t.locale === locale
     );
+
+    // if we do not have a table with that locale, try
+    // to load a default one
+    if (!table) {
+      table = this._tables.find(
+        t => t.namespace === this.name
+      );
+    }
 
     if (!table)
       throw `${this.name} has no registered table for ${ex.namespace}.`;

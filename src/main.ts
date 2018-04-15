@@ -29,6 +29,11 @@ export function context (name: string) : Exceptional {
   return Exceptional.create(getNamespace(name));
 }
 
+var locale: string = 'en';
+export function setLocale (newLocale: string) {
+  locale = newLocale;
+}
+
 /**
  * Format an exception.
  */
@@ -37,5 +42,5 @@ export function format (ex: IException<any>) : string {
   if (!namespace)
     throw `Could not format exception.`;
 
-  return namespace.render(ex);
+  return namespace.render(ex, locale);
 }
