@@ -33,7 +33,7 @@ export interface IException <T> {
 }
 ```
 The code above is the generic structure of an exception.
-It contains information about the namespace (more on this further down), the code that uniquely identifies the error and a payload that can the anyting.
+It contains information about the namespace (more on this further down), the code that uniquely identifies the error and a payload that can be anyting.
 
 The library makes use of custom error objects that extend the Node.JS Error object.
 
@@ -92,7 +92,7 @@ Built in exception class types are:
 
 8. **Input Validation Exception**
 
-   This type of exception is used for signaling that the body of an HTTP request has a field with a different type than what the server was expecting. This type is a bit more special, because it requires that the payload is contains an array with the fields that did not pass validation. It does so because that array can then be used in the client side code to display error messages next to a form's fields. As a best practice, the names of the error fields should match the name of the id assigned to the form control.
+   This type of exception is used for signaling that the body of an HTTP request has a field with a different type than what the server was expecting. This type is a bit more special, because it requires that the payload contains an array with the fields that did not pass validation. It does so because that array can then be used in the client side code to display error messages next to a form's fields. As a best practice, the names of the error fields should match the name of the id assigned to the form control.
    ```javascript
     throw EXCEPTIONAL.InputValidationException(1, {
       errors: [
@@ -201,7 +201,7 @@ When defining an express route middleware, we could pass for a callback an `asyn
 TA DAAAA!! No more passing `req` and `res` objects down to controller methods to control the status code sent to the client.
 
 ## Localization
-The requirement that an exception must have a code property has two major benefits. First of all, it helps with code verbosity, writting a number is much eassier that an error string. And secondly, an error code can be matched to an error string.
+The requirement that an exception must have a code property has two major benefits. First of all, it helps with code verbosity, writting a number is much eassier than an error string. And secondly, an error code can be matched to an error string.
 
 `exceptional.js` provides an API for registering error code tables with multiple language support.
 
@@ -242,13 +242,15 @@ registerTable({
 
 ## Displaying error messages
 
-The locale must be set before right after the error tables have been loaded into the library.
+The locale must be set right after the error tables have been loaded into the library.
 
 ```javascript
 import { setLocale } from 'exceptional.js';
 
 setLocale('en');
 ```
+
+Keep in mind that the locale can be set to another value anytime.
 
 Using the `format` method provided by the library, the error string matching the namespace and code of the passed exception object will be retrieved from the error table with the locale selected.
 
@@ -274,7 +276,7 @@ registerTable({
   }
 });
 
-setLocale('ro');
+setLocale('en');
 
 const EXCEPTIONAL = context('users');
 try {
